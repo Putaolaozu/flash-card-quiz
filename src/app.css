@@ -1,0 +1,99 @@
+*,
+*:root {
+  box-sizing: border-box;
+}
+body {
+  background-color: #c8d0d2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: aliceblue;
+}
+
+.header label {
+  text-align: center;
+}
+
+.header button {
+  margin: 1rem;
+  background-color: rgb(146, 219, 255);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  transition: 0.3s ease-in-out;
+}
+.header button:hover {
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.2);
+  background-color: rgb(131, 182, 250);
+  transform: translateY(-0.1rem);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.flash-card-list {
+  margin: 1rem 2rem;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  position: relative;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2), 0 0 3px 2px rgba(0, 0, 0, 0.1) inset;
+  transition: 0.3s ease-in-out;
+  transform: rotateY(var(--rotate-y, 0));
+  transform-style: preserve-3d;
+}
+.card.flip {
+  --rotate-y: 180deg;
+}
+.card:hover {
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transform: translateY(-2px) rotateY(var(--rotate-y, 0));
+  background-color: white;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card .front {
+  margin: 1rem 1rem 0 2rem;
+  left: 0;
+  padding: 1rem 0;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+.question {
+  color: black;
+  font-weight: bold;
+}
+
+.options {
+  list-style: upper-alpha;
+  margin-top: 0.5rem;
+  color: #555;
+  padding-left: 1.5rem;
+}
+
+.option {
+  margin-top: 0.25rem;
+}
